@@ -1,0 +1,46 @@
+﻿<Window x:Class="SAMunicipalServicesApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="South Africa Municipal Services" Height="400" Width="600">
+    <Window.Resources>
+        <!-- Define the RoundedButtonStyle here -->
+        <Style x:Key="RoundedButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="20" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="1">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#0072BC"/>
+                                <Setter Property="BorderBrush" Value="White"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#005B9A"/>
+                                <Setter Property="BorderBrush" Value="#f3f4f6"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="#f3f4f6">
+        <!-- Use Border to add Padding around the StackPanel -->
+        <Border Background="#005B9A" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" Width="507" Height="315">
+            <StackPanel>
+                <TextBlock Text="Welcome to Municipal Services" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,10"/>
+
+                <Button Content="Report Issues" Name="btnReportIssues" Click="btnReportIssues_Click" Style="{StaticResource RoundedButtonStyle}" Margin="10,5" Height="36"/>
+
+                <Button Content="Local Events and Announcements (Coming Soon)" IsEnabled="False" Margin="10,5" Style="{StaticResource RoundedButtonStyle}" Height="38" Width="464"/>
+                <Button Content="Service Request Status (Coming Soon)" IsEnabled="False" Style="{StaticResource RoundedButtonStyle}" Height="39" Width="469"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
