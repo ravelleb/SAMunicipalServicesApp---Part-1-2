@@ -1,37 +1,72 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using MahApps.Metro.Controls;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SAMunicipalServicesApp
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
+        private EmergencyContactService _emergencyContactService = new EmergencyContactService();
+        private RequestService _requestService = new RequestService();
+        private ComingSoonService _comingSoonService = new ComingSoonService();
+
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void btnReportIssues_Click(object sender, RoutedEventArgs e)
+       
+        private void BtnReportIssues_Click(object sender, RoutedEventArgs e)
         {
-            // Open the Report Issues Window
             ReportIssuesWindow reportIssuesWindow = new ReportIssuesWindow();
             reportIssuesWindow.Show();
-            this.Close();
+            this.Hide();  // Hides the MainWindow but keeps the app running
+        }
+
+        
+        private void BtnEmergencyContactServices_Click(object sender, RoutedEventArgs e)
+        {
+            EmergencyContactWindow emergencyContactWindow = new EmergencyContactWindow();
+            emergencyContactWindow.Show();
+            this.Hide();  
+        }
+
+        
+        private void BtnRequestService_Click(object sender, RoutedEventArgs e)
+        {
+            RequestServiceWindow requestServiceWindow = new RequestServiceWindow();
+            requestServiceWindow.Show();
+            this.Hide();  
+        }
+
+        
+        private void BtnEvents_Click(object sender, RoutedEventArgs e)
+        {
+            EventsWindow eventsWindow = new EventsWindow();
+            eventsWindow.Show();
+            this.Hide();  
+        }
+
+        
+        private void BtnServiceRequestStatus_Click(object sender, RoutedEventArgs e)
+        {
+            ServiceRequestStatusWindow serviceRequestStatusWindow = new ServiceRequestStatusWindow();
+            serviceRequestStatusWindow.Show();
+            this.Hide();  
+        }
+
+        //ContentControl
+        private void DisplayContent(string content)
+        {
+            ContentDisplay.Content = new TextBlock
+            {
+                Text = content,
+                FontSize = 16,
+                Foreground = new SolidColorBrush(Colors.White),
+                TextWrapping = TextWrapping.Wrap,
+                Margin = new Thickness(10)
+            };
         }
     }
 }
-

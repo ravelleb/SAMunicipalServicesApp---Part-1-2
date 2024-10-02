@@ -30,21 +30,17 @@ namespace SAMunicipalServicesApp
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-            // Handle issue submission logic here
             string location = txtLocation.Text;
             string category = cmbCategory.Text;
             string description = new TextRange(rtbDescription.Document.ContentStart, rtbDescription.Document.ContentEnd).Text;
 
-            // Store this data in a list
             issues.Add(new Issue
             {
                 Location = location,
                 Category = category,
                 Description = description
-                // Optionally add media path here
             });
 
-            // Show a thank you message
             lblEngagement.Visibility = Visibility.Visible;
         }
 
