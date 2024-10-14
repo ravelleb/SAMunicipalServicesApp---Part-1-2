@@ -6,9 +6,9 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="385*"/>
-            <ColumnDefinition Width="290*"/>
-            <ColumnDefinition Width="399*"/>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="290"/>
+            <ColumnDefinition Width="57*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -22,148 +22,72 @@
             <ImageBrush ImageSource="/Images/Rainbow nation.jpg"/>
         </Grid.Background>
 
-        <!-- Semi-Transparent Overlay -->
         <Rectangle Fill="Black" Opacity="0.8" IsHitTestVisible="False" Grid.ColumnSpan="3" Grid.RowSpan="5" RadiusX="0" RadiusY="0" Margin="-60,-51,-71,-70"/>
 
-        <!-- Buttons on the Left Side -->
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Margin="10,17,0,0" Height="426" Width="375" Grid.RowSpan="3" Grid.Row="1">
-            <!-- Title -->
-            <TextBlock Text="Municipal Services"
-                       FontSize="24" 
-                       FontWeight="Bold" 
-                       Foreground="White" 
-                       HorizontalAlignment="Center" 
-                       Margin="15,15,15,15"/>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Grid.Column="0" Margin="10,17,0,0" Height="498" Width="375" Grid.RowSpan="3" Grid.Row="1">
+            <TextBlock Text="Municipal Services" FontSize="24" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="15,15,15,15"/>
 
-            <!-- Report Issues Button -->
-            <Button Content="Report Issues" 
-                    Name="btnReportIssues" 
-                    Click="BtnReportIssues_Click" 
-                    Style="{StaticResource RoundedButtonStyle}" 
-                    Margin="10,10" 
-                    Height="50" Width="326"
-                    FontSize="16"
-                    Opacity="0.7"/>
-
-            <!-- Emergency Contact Services Button -->
-            <Button Content="Emergency Contact Services" 
-                    Name="btnEmergencyContactServices" 
-                    Click="BtnEmergencyContactServices_Click" 
-                    Style="{StaticResource RoundedButtonStyle}" 
-                    Margin="10,10" 
-                    Height="50" Width="326" 
-                    FontSize="16"
-                    Opacity="0.7"/>
-
-            <!-- Request Service Button -->
-            <Button Content="Request Service" 
-                    Name="btnRequestService" 
-                    Click="BtnRequestService_Click" 
-                    Style="{StaticResource RoundedButtonStyle}" 
-                    Margin="10,10" 
-                    Height="50" Width="326"
-                    FontSize="16"
-                    Opacity="0.7"/>
-
-            <!-- Announcements and Service Request Status Buttons (Coming Soon) -->
-            <Button Content="Announcements (Coming Soon)" 
-                    Name="btnEvents" 
-                    IsEnabled="False" 
-                    Style="{StaticResource RoundedButtonStyle}" 
-                    Margin="10,10" 
-                    Height="50" Width="326"
-                    FontSize="16"
-                    Opacity="0.7"/>
-            <Button Content="Service Request Status (Coming Soon)" 
-                    Name="btnServiceRequestStatus" 
-                    IsEnabled="False" 
-                    Style="{StaticResource RoundedButtonStyle}" 
-                    Margin="10,10" 
-                    Height="50" Width="326"
-                    FontSize="16"
-                    Opacity="0.7"/>
+            <Button Content="Report Issues" Name="btnReportIssues" Click="BtnReportIssues_Click" Style="{StaticResource RoundedButtonStyle}" Margin="10,10" Height="50" Width="326" FontSize="16" Opacity="0.7"/>
+            <Button Content="Emergency Contact Services" Name="btnEmergencyContactServices" Click="BtnEmergencyContactServices_Click" Style="{StaticResource RoundedButtonStyle}" Margin="10,10" Height="50" Width="326" FontSize="16" Opacity="0.7"/>
+            <Button Content="Request Service" Name="btnRequestService" Click="BtnRequestService_Click" Style="{StaticResource RoundedButtonStyle}" Margin="10,10" Height="50" Width="326" FontSize="16" Opacity="0.7"/>
+            <Button Content="Announcements" Name="btnEvents" Click="BtnEvents_Click" Style="{StaticResource RoundedButtonStyle}" Margin="10,10" Height="50" Width="326" FontSize="16" Opacity="0.7"/>
+            <Button Content="Submit Event/Announcement" Name="btnSubmitEvent" Click="BtnSubmitEvent_Click" Style="{StaticResource RoundedButtonStyle}" Margin="10,10" Height="50" Width="326" FontSize="16" Opacity="0.7"/>
+            <Button Content="Service Request Status (Coming Soon)" Name="btnServiceRequestStatus" IsEnabled="False" Style="{StaticResource RoundedButtonStyle}" Margin="10,10" Height="50" Width="326" FontSize="16" Opacity="0.7"/>
         </StackPanel>
 
-        <!-- ContentControl to dynamically display content -->
-        <ContentControl x:Name="ContentDisplay" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="20">
-            <TextBlock Text="Please select a service to view details." 
-                       FontSize="18" 
-                       Foreground="White" 
-                       VerticalAlignment="Top" 
-                       HorizontalAlignment="Left" Margin="135,262,0,0"/>
+        <ContentControl x:Name="ContentDisplay" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Grid.RowSpan="3" Margin="20" RenderTransformOrigin="0.5,0.5">
+            <ContentControl.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.211"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-1.196"/>
+                </TransformGroup>
+            </ContentControl.RenderTransform>
+            <TextBlock Text="" FontSize="18" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="135,262,0,0"/>
         </ContentControl>
 
-        <!-- Weather and other static sections can remain the same -->
-        <!-- Current Weather section -->
         <Border BorderBrush="White" BorderThickness="2" CornerRadius="10" Grid.Column="1" Grid.Row="2" Margin="24,35,24,35">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Height="141" Width="222">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,10,0,0" Height="180" Width="222">
                 <TextBlock Text="Current Weather" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,10"/>
-                <TextBlock Text="City: Durban" FontSize="14" Foreground="LightGray" HorizontalAlignment="Center"/>
-                <TextBlock Text="Temperature: 28°C" FontSize="14" Foreground="LightGray" HorizontalAlignment="Center"/>
-                <TextBlock Text="Condition: Sunny" FontSize="14" Foreground="LightGray" HorizontalAlignment="Center"/>
-                <Image Source="/Images/weather icon.png" Width="40" Height="40" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="lblCity" Text="City: Durban" FontSize="14" Foreground="LightGray" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="lblTemperature" Text="Temperature: --°C" FontSize="14" Foreground="LightGray" HorizontalAlignment="Center"/>
+                <TextBlock x:Name="lblCondition" Text="Condition: --" FontSize="14" Foreground="LightGray" HorizontalAlignment="Center"/>
+                <Image Source="/Images/cloudy.png" x:Name="weatherIcon" Width="70" Height="49"/>
             </StackPanel>
         </Border>
 
-        <!-- City News Section -->
         <Border BorderBrush="White" BorderThickness="2" CornerRadius="10" Grid.Column="1" Grid.Row="2" Margin="24,293,17,20" Grid.RowSpan="2">
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
-                <TextBlock Text="City News" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,10"/>
-                <TextBlock Text="• Road Maintenance on Main St." FontSize="14" Foreground="LightGray" HorizontalAlignment="Center" Margin="0,5"/>
-                <TextBlock Text="• Public Holiday on June 16" FontSize="14" Foreground="LightGray" HorizontalAlignment="Center" Margin="0,5"/>
-                <TextBlock Text="• City Council Meeting: June 20" FontSize="14" Foreground="LightGray" HorizontalAlignment="Center" Margin="0,5"/>
+            <StackPanel x:Name="CityNewsPanel" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10">
+                <TextBlock Text="City News" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,10,0,10" HorizontalAlignment="Center"/>
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Height="229" Width="188">
+                    <StackPanel x:Name="CityNews"></StackPanel>
+                </ScrollViewer>
             </StackPanel>
         </Border>
 
-        <!-- Power Outage and Water Cut Schedule with Border on the Right Side -->
-        <Border Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                BorderBrush="White" BorderThickness="2" CornerRadius="10" Width="378" Height="223" Grid.Row="2">
+        <Border Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="White" BorderThickness="2" CornerRadius="10" Width="378" Height="223" Grid.Row="2">
             <StackPanel Height="219">
-                <TextBlock Text="Power Outage and Water Cut Schedule" 
-                           FontSize="18" 
-                           FontWeight="Bold" 
-                           Foreground="White" 
-                           HorizontalAlignment="Center" 
-                           Margin="0,10"/>
+                <TextBlock Text="Power Outage and Water Cut Schedule" FontSize="18" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" Margin="0,10"/>
                 <TextBlock Text="Location:" FontWeight="Bold" Foreground="White" Margin="0,5"/>
                 <TextBox Name="txtLocation" Width="300" Height="25" Margin="0,0,0,10"/>
                 <TextBlock Text="Current Schedule:" FontWeight="Bold" Foreground="White" Margin="0,5"/>
-                <TextBlock Text="Power Outage: 10 AM - 12 PM\nWater Cut: 3 PM - 5 PM" Foreground="NavajoWhite" Margin="0,5"/>
+                <TextBlock Text="Power Outage: 10 AM - 12 PM\ Water Cut: 3 PM - 5 PM" Foreground="NavajoWhite" Margin="0,5"/>
             </StackPanel>
         </Border>
 
-        <!-- Disaster Warning and Map Section with Border on the Right Side -->
-        <Border Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" 
-                BorderBrush="White" BorderThickness="2" CornerRadius="10" Width="380" Height="328" Grid.Row="2" Margin="0,293,0,0" Grid.RowSpan="2">
+        <Border Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Top" BorderBrush="White" BorderThickness="2" CornerRadius="10" Width="380" Height="328" Grid.Row="2" Margin="0,293,0,0" Grid.RowSpan="2">
             <StackPanel Margin="0,0,-2,0">
-                <TextBlock Text="Disaster Warnings and Map" 
-                           FontSize="16" 
-                           FontWeight="Bold" 
-                           Foreground="Red" 
-                           HorizontalAlignment="Center" 
-                           Margin="0,20"/>
-                <TextBlock Text="Heavy Rain Expected Tomorrow. Stay Indoors!" 
-                           FontSize="14" 
-                           Foreground="NavajoWhite" 
-                           HorizontalAlignment="Center" 
-                           Margin="0,5"/>
-                <!-- Placeholder for Disaster Map -->
+                <TextBlock Text="Disaster Warnings and Map" FontSize="16" FontWeight="Bold" Foreground="Red" HorizontalAlignment="Center" Margin="0,20"/>
+                <TextBlock Text="Heavy Rain Expected Tomorrow. Stay Indoors!" FontSize="14" Foreground="NavajoWhite" HorizontalAlignment="Center" Margin="0,5"/>
                 <Border BorderBrush="White" BorderThickness="1" CornerRadius="5" Margin="20,10,20,0" Height="200">
-                    <TextBlock Text="Disaster Map (Cloud Movement)" 
-                               FontSize="14" 
-                               Foreground="White" 
-                               HorizontalAlignment="Center" 
-                               VerticalAlignment="Center"/>
+                    <MediaElement x:Name="WeatherVideoPlayer" LoadedBehavior="Manual" Stretch="Uniform" Width="328" MediaEnded="WeatherVideoPlayer_MediaEnded" Margin="0,-2,0,-4"/>
                 </Border>
             </StackPanel>
         </Border>
 
-        <!-- News Feed Banner -->
         <DockPanel VerticalAlignment="Center" Height="40" Background="LightSlateGray" Opacity="0.8" Grid.Row="4" Grid.ColumnSpan="3">
-            <TextBlock Text="Latest Updates: Power outage tomorrow from 10 AM to 12 PM. Water maintenance scheduled for 3 PM to 5 PM." 
-                       Foreground="DarkRed" FontSize="19" 
-                       Padding="10,0" 
-                       DockPanel.Dock="Bottom">
+            <TextBlock x:Name="newsFeedText" Text="Latest Updates: Power outage tomorrow from 10 AM to 12 PM. Water maintenance scheduled for 3 PM to 5 PM." Foreground="DarkRed" FontSize="19" Padding="10,0" DockPanel.Dock="Bottom">
                 <TextBlock.RenderTransform>
                     <TranslateTransform x:Name="newsFeedTransform"/>
                 </TextBlock.RenderTransform>
@@ -171,16 +95,12 @@
                     <EventTrigger RoutedEvent="Loaded">
                         <BeginStoryboard>
                             <Storyboard RepeatBehavior="Forever">
-                                <DoubleAnimation Storyboard.TargetName="newsFeedTransform" 
-                                                 Storyboard.TargetProperty="X" 
-                                                 From="1080" To="-500" 
-                                                 Duration="0:0:15" />
+                                <DoubleAnimation Storyboard.TargetName="newsFeedTransform" Storyboard.TargetProperty="X" From="1080" To="-500" Duration="0:0:15"/>
                             </Storyboard>
                         </BeginStoryboard>
                     </EventTrigger>
                 </TextBlock.Triggers>
             </TextBlock>
         </DockPanel>
-
     </Grid>
 </Controls:MetroWindow>

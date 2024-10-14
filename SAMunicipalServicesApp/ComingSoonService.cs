@@ -8,11 +8,11 @@ namespace SAMunicipalServicesApp
 {
     public class ComingSoonService
     {
-        public string GetEventsAndAnnouncements()
+        /*public string GetEventsAndAnnouncements()
         {
             // Placeholder message
             return "Local Events and Announcements (Coming Soon)";
-        }
+        }*/
 
         public string GetServiceRequestStatus()
         {
