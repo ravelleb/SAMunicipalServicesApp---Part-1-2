@@ -1,49 +1,57 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Media.Imaging;
 
 namespace SAMunicipalServicesApp
 {
     public partial class RequestServiceWindow : Window
     {
-        private RequestService _requestService;
-        //service
         public RequestServiceWindow()
         {
             InitializeComponent();
-            _requestService = new RequestService();
-
-            // Load available services
             LoadAvailableServices();
         }
 
         private void LoadAvailableServices()
         {
+            //logos
+            List<ServiceItem> services = new List<ServiceItem>
+            {
+                new ServiceItem { Name = "Water Supply Issue", ImagePath = "Images\\Weather\\water.png" },
+                new ServiceItem { Name = "Road Maintenance", ImagePath = "Images\\Weather\\road.png" },
+                new ServiceItem { Name = "Electricity Issue", ImagePath = "Images\\Weather\\electricity.jpeg" },
+                new ServiceItem { Name = "Garbage Collection", ImagePath = "Images\\Weather\\garbage.png" }
+            };
 
-            var services = _requestService.GetAvailableServices();
             ServiceList.ItemsSource = services;
         }
 
         private void SubmitServiceRequest_Click(object sender, RoutedEventArgs e)
         {
+            var selectedService = (ServiceItem)ServiceList.SelectedItem;
 
-            var selectedService = (string)ServiceList.SelectedItem;
             if (selectedService != null)
             {
-                // Submit service reques
-                _requestService.SubmitServiceRequest(selectedService, "User Location", "Request Description");
-                MessageBox.Show($"Service request for {selectedService} submitted.", "Request Submitted", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Service request for '{selectedService.Name}' has been submitted successfully.");
             }
             else
             {
-                MessageBox.Show("Please select a service from the list.", "No Service Selected", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Please select a service from the list.");
             }
         }
-
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            this.Close();  // Close the Request
+            this.Close();  
+            // Close
         }
+    }
+
+    public class ServiceItem
+    {
+        public string Name { get; set; }
+        public string ImagePath { get; set; }
     }
 }

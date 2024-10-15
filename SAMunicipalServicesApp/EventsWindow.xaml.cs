@@ -37,8 +37,9 @@ namespace SAMunicipalServicesApp
             datePicker.SelectedDateChanged += (s, e) => ApplyFilters();
         }
 
-        private void LoadEvents() //hard coded information for my aplication.
+        private void LoadEvents()
         {
+            //sampls added to test 
             Events.Add(new Event
             {
                 EventName = "Community Clean-up Drive",
@@ -194,19 +195,17 @@ namespace SAMunicipalServicesApp
             var filtered = Events.AsQueryable();
             var recommended = new ObservableCollection<Event>(Events);
 
-            // Apply Category Filter
             if (selectedCategory != "All Events" && !string.IsNullOrEmpty(selectedCategory))
             {
                 filtered = filtered.Where(e => e.Category.Equals(selectedCategory, StringComparison.OrdinalIgnoreCase));
             }
-
-            // Apply Date Filter
+            
             if (selectedDate.HasValue)
             {
                 filtered = filtered.Where(e => e.EventDate.Date == selectedDate.Value.Date);
             }
 
-            // Apply Search Filter
+            //Search Filter
             if (!string.IsNullOrEmpty(searchText))
             {
                 filtered = filtered.Where(e =>
@@ -220,21 +219,16 @@ namespace SAMunicipalServicesApp
             foreach (var evt in filtered.OrderBy(e => e.EventDate))
             {
                 FilteredEvents.Add(evt);
-                recommended.Remove(evt); // Remove from recommendations if it matches the filter
+                recommended.Remove(evt); 
             }
 
-            UpdateHardCodedRecommendations(recommended);
+            UpdateRecommendations(recommended);
         }
 
-        private void UpdateHardCodedRecommendations(ObservableCollection<Event> eventsToRecommend)
+        private void UpdateRecommendations(ObservableCollection<Event> eventsToRecommend)
         {
-            
             RecommendedEvents.Clear();
-
-            var recommended = eventsToRecommend
-                .OrderByDescending(e => e.CurrentAttendees)
-                .Take(3);
-
+            var recommended = eventsToRecommend.OrderByDescending(e => e.CurrentAttendees).Take(5);
             foreach (var evt in recommended)
             {
                 RecommendedEvents.Add(evt);
@@ -250,7 +244,7 @@ namespace SAMunicipalServicesApp
         {
             txtSearch.Clear();
             datePicker.SelectedDate = null;
-            cmbCategoryFilter.SelectedIndex = 0; // Reset to "All Events"
+            cmbCategoryFilter.SelectedIndex = 0; //reset
             ApplyFilters();
         }
 
@@ -272,7 +266,7 @@ namespace SAMunicipalServicesApp
                 MessageBoxImage.Information);
         }
 
-        public class Event //gets or sets
+        public class Event
         {
             public string EventName { get; set; }
             public DateTime EventDate { get; set; }

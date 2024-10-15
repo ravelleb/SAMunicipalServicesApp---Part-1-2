@@ -5,23 +5,26 @@ namespace SAMunicipalServicesApp
 {
     public class EmergencyContactService
     {
-        public List<EmergencyContact> GetEmergencyContacts()
+        private CustomLinkedList<EmergencyContact> emergencyContacts;
+
+        public EmergencyContactService()
         {
-            // Dummy data, which could be from a database in a real-world scenario
-            return new List<EmergencyContact>
-            {
-                new EmergencyContact("Fire Department", "Emergency Service", "10111"),
-                new EmergencyContact("Ambulance", "Medical Emergency", "10177"),
-                new EmergencyContact("Police", "Law Enforcement", "10111")
-            };
+            emergencyContacts = new CustomLinkedList<EmergencyContact>();
+            // Adding some initial contacts
+            emergencyContacts.Add(new EmergencyContact("Fire Department", "Emergency Service", "10111"));
+            emergencyContacts.Add(new EmergencyContact("Ambulance", "Medical Emergency", "10177"));
+            emergencyContacts.Add(new EmergencyContact("Police", "Law Enforcement", "10111"));
+        }
+
+        public IEnumerable<EmergencyContact> GetEmergencyContacts()
+        {
+            return emergencyContacts.GetAll();
         }
 
         public bool SendEmergencyRequest(EmergencyContact contact, string message)
         {
-            // Sending an emergency request
             Console.WriteLine($"Emergency Request Sent to: {contact.Name} ({contact.ServiceType}) with message: {message}");
             return true;
         }
     }
 }
-

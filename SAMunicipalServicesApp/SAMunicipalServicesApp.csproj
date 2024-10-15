@@ -63,6 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ComingSoonService.cs" />
+    <Compile Include="CustomLinkedList.cs" />
     <Compile Include="EmergencyContact.cs" />
     <Compile Include="EmergencyContactService.cs" />
     <Compile Include="EmergencyContactWindow.xaml.cs">
@@ -175,8 +176,12 @@
     <Resource Include="Images\cloudy.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Images\Weather\garbage.png" />
+    <Resource Include="Images\Weather\electricity.jpeg" />
     <Content Include="Images\Weather\Moving.mp4" />
     <Content Include="Images\Weather\Rain.mp4" />
+    <Resource Include="Images\Weather\water.png" />
+    <Resource Include="Images\Weather\road.png" />
     <Content Include="Images\Weather\Solar.mp4" />
     <Content Include="Images\Weather\Sunset.mp4" />
     <Content Include="Images\Weather\Tornado.mp4" />

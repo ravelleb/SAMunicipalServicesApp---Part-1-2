@@ -4,7 +4,7 @@ namespace SAMunicipalServicesApp
 {
     public partial class EmergencyContactWindow : Window
     {
-        private readonly EmergencyContactService _emergencyContactService;
+        private EmergencyContactService _emergencyContactService;
 
         public EmergencyContactWindow()
         {
@@ -17,16 +17,17 @@ namespace SAMunicipalServicesApp
         private void LoadEmergencyContacts()
         {
             var contacts = _emergencyContactService.GetEmergencyContacts();
-            ContactList.ItemsSource = contacts;  // Display emergency contacts in ListBox
+            ContactList.ItemsSource = contacts;
         }
 
         private void SendEmergencyRequest_Click(object sender, RoutedEventArgs e)
         {
+           
             var selectedContact = (EmergencyContact)ContactList.SelectedItem;
             if (selectedContact != null)
             {
                 _emergencyContactService.SendEmergencyRequest(selectedContact, "Help needed!");
-                MessageBox.Show($"Emergency request sent to {selectedContact.Name} ({selectedContact.ServiceType})");
+                MessageBox.Show($"Emergency request sent to {selectedContact.Name}");
             }
             else
             {
@@ -34,6 +35,7 @@ namespace SAMunicipalServicesApp
             }
         }
 
+        // Back to Main Window
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();

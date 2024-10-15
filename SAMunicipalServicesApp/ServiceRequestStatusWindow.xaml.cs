@@ -17,7 +17,7 @@ namespace SAMunicipalServicesApp
         {
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
-            this.Close();  // Close the ServiceRequestStatusWindow and return to MainWindow
+            this.Close();  
         }
     }
 }

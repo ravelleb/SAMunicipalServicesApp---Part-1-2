@@ -21,8 +21,7 @@ namespace SAMunicipalServicesApp
 
         public bool SubmitServiceRequest(string serviceType, string location, string description)
         {
-            // Simulate submission of service request
-            // Normally, you'd store this in a database or send it to an API
+            //user will see
             Console.WriteLine($"Service Request Submitted: {serviceType} at {location}, Description: {description}");
             return true;
         }

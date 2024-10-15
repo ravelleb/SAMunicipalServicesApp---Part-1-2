@@ -41,7 +41,7 @@ namespace SAMunicipalServicesApp
             }
         }
 
-        private static int submissionCount = 0; // Track number of submissions
+        private static int submissionCount = 0; // Track number
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
@@ -117,7 +117,6 @@ namespace SAMunicipalServicesApp
         }
     }
 
-    // Issue Class
     public class Issue
     {
         public string StreetAddress { get; set; }
