@@ -34,7 +34,7 @@ The **South Africa Municipal Services App** is a desktop application built using
 ## Installation:
 
 ### To Run Locally:
-1. **Clone the Repository**: Clone the repository from the provided [GitHub link] to your local machine.
+1. **Clone the Repository**: Clone the repository from the provided (https://github.com/ravelleb/SAMunicipalServicesApp---Part-1-2.git) to your local machine.
 2. **Install Dependencies**: Make sure to update all the *NuGet Packages* to their latest versions.
 3. **Run in Visual Studio 2022**: Open the project in *Visual Studio 2022*.
 4. **Build and Run**: Ensure all dependencies are installed, then build and run the project using the .NET Framework.
