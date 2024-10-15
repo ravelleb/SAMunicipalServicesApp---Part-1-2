@@ -13,6 +13,11 @@
 ## Overview:
 The **South Africa Municipal Services App** is a desktop application built using *C# WPF* in *Visual Studio 2022*. It provides citizens a user-friendly platform to access various municipal services, report issues, get emergency contacts, and receive local event information. The app aims to improve the quality of engagement between citizens and municipalities, focusing on efficient service delivery and community involvement.
 
+----------
+**Read Me Update on Main**
+----------
+Find Part 2 under commits
+
 ### Features:
 1. **Report Issues**:
    - Users can report municipal issues such as road damage or water outages. This feature helps maintain transparency in issue tracking.
