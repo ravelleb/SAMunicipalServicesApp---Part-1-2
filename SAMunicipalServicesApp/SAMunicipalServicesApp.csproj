@@ -63,6 +63,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ComingSoonService.cs" />
+    <Compile Include="EmergencyContact.cs" />
     <Compile Include="EmergencyContactService.cs" />
     <Compile Include="EmergencyContactWindow.xaml.cs">
       <DependentUpon>EmergencyContactWindow.xaml</DependentUpon>
@@ -70,7 +71,7 @@
     <Compile Include="EventsWindow.xaml.cs">
       <DependentUpon>EventsWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Issue.cs" />
+    <Compile Include="IssueBase1.cs" />
     <Compile Include="ReportIssuesWindow.xaml.cs">
       <DependentUpon>ReportIssuesWindow.xaml</DependentUpon>
     </Compile>
@@ -81,6 +82,7 @@
     <Compile Include="ServiceRequestStatusWindow.xaml.cs">
       <DependentUpon>ServiceRequestStatusWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserEngagement.cs" />
     <Page Include="EmergencyContactWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

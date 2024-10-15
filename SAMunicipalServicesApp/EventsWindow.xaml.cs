@@ -228,11 +228,9 @@ namespace SAMunicipalServicesApp
 
         private void UpdateHardCodedRecommendations(ObservableCollection<Event> eventsToRecommend)
         {
-            // Clear old recommendations
+            
             RecommendedEvents.Clear();
 
-            // Example Recommendation Logic:
-            // Recommend top 3 events based on the highest number of attendees or select upcoming events.
             var recommended = eventsToRecommend
                 .OrderByDescending(e => e.CurrentAttendees)
                 .Take(3);

@@ -4,7 +4,7 @@
         Title="Events and Announcements" Height="725" Width="1200" ResizeMode="CanResize" MinHeight="600" MinWidth="1000">
     <Grid Background="#f3f4f6">
         <StackPanel Margin="20">
-           <!--//events-->
+            <!--//events-->
             <TextBlock Text="Local Events and Announcements" 
                        FontSize="28" 
                        FontWeight="Bold" 
@@ -12,7 +12,7 @@
                        HorizontalAlignment="Center" 
                        Margin="0,0,0,20"/>
 
-            
+
             <Grid HorizontalAlignment="Center" Margin="0,0,0,20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -44,11 +44,11 @@
                 <TextBlock Text="Search:" VerticalAlignment="Center" Grid.Column="4" FontWeight="Bold"/>
                 <TextBox x:Name="txtSearch" Width="200" Height="30" Grid.Column="6"/>
 
-                <!--Date -->
+                <!--Date W3 -->
                 <TextBlock Text="Date:" VerticalAlignment="Center" Grid.Column="8" FontWeight="Bold"/>
                 <DatePicker x:Name="datePicker" Width="150" Grid.Column="10"/>
 
-                <!--Buttons-->
+                <!--Buttons W3 Form-->
                 <StackPanel Orientation="Horizontal" Grid.Column="12" Margin="10,0,0,0">
                     <Button Content="Search" 
                             Width="80" Height="30" 
@@ -69,7 +69,7 @@
                             BorderThickness="0"
                             Margin="10,0,0,0"/>
                 </StackPanel>
-                
+
             </Grid>
 
             <Grid Margin="0,0,0,20">
@@ -144,4 +144,6 @@
                     Padding="5"/>
         </StackPanel>
     </Grid>
+    <!--W3-->
 </Window>
+

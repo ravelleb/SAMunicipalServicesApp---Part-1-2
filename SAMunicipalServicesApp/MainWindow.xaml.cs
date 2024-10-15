@@ -26,6 +26,7 @@ namespace SAMunicipalServicesApp
             LoadCityNews();
             InitializeVideoPlaylist();
             PlayNextVideo();
+            this.StateChanged += MainWindow_StateChanged;
         }
 
         private void BtnReportIssues_Click(object sender, RoutedEventArgs e)
@@ -50,10 +51,23 @@ namespace SAMunicipalServicesApp
         }
 
         private void BtnEvents_Click(object sender, RoutedEventArgs e)
-        {
+        {//overflow
             var eventsWindow = new EventsWindow();
             eventsWindow.Show();
             this.Close();
+        }
+
+        private void MainWindow_StateChanged(object sender, EventArgs e)
+        {//stackoverflow
+            if (this.WindowState != WindowState.Minimized)
+            {
+                this.Width = SystemParameters.PrimaryScreenWidth;
+                this.Height = SystemParameters.PrimaryScreenHeight;
+                //this.Width = SystemParameters.VirtualScreenWidth;
+                //this.Height =SystemParameters.VirtualScreenHeight;
+                //this.Width = SystemParameters.WorkArea.Width                            
+                //this.Height =SystemParameters.WorkArea.Height;
+            }
         }
 
         private void BtnSubmitEvent_Click(object sender, RoutedEventArgs e)
@@ -119,17 +133,19 @@ namespace SAMunicipalServicesApp
         //city news:)
         private void LoadCityNews()
         {
-            // dummy news for self
+            // Dummy news for demonstration purposes
             List<string> newsItems = new List<string>
-            {
-                "Road Maintenance on Main St. - Expect delays from June 10 to June 15.",
-                "Public Holiday on June 16 - Municipal offices will be closed.",
-                "City Council Meeting: June 20 - Open for all citizens to attend.",
-                "New Park Opening on July 1 - A new park is being inaugurated in the city center.",
-                "Water Supply Disruption: June 25 - Maintenance on the water system will cause outages."
-            };
+    {
+        "Road Maintenance on Main St. - Expect delays from June 10 to June 15.",
+        "Public Holiday on June 16 - Municipal offices will be closed.",
+        "City Council Meeting: June 20 - Open for all citizens to attend.",
+        "New Park Opening on July 1 - A new park is being inaugurated in the city center.",
+        "Water Supply Disruption: June 25 - Maintenance on the water system will cause outages."
+    };
 
+            // Clear news items
             CityNews.Children.Clear();
+
             
             foreach (string news in newsItems)
             {
@@ -138,15 +154,16 @@ namespace SAMunicipalServicesApp
                     Text = $"• {news}",
                     FontSize = 14,
                     Foreground = Brushes.LightGray,
-                    HorizontalAlignment = HorizontalAlignment.Center,
-                    Margin = new Thickness(0, 5, 0, 5)
+                    TextWrapping = TextWrapping.Wrap,
+                    HorizontalAlignment = HorizontalAlignment.Left, 
+                    Margin = new Thickness(0, 5, 0, 10) 
                 };
 
                 CityNews.Children.Add(newsTextBlock);
             }
         }
 
-        private void InitializeVideoPlaylist()
+        private void InitializeVideoPlaylist()//+video for temporary purpose..
         {
             _videoPaths.Add(@"c:\users\rbalr\source\repos\prog part 2\samunicipalservicesapp\images\weather\moving.mp4");
             _videoPaths.Add(@"c:\users\rbalr\source\repos\prog part 2\samunicipalservicesapp\images\weather\rain.mp4");
@@ -161,7 +178,7 @@ namespace SAMunicipalServicesApp
 
             WeatherVideoPlayer.Source = new Uri(_videoPaths[_currentVideoIndex]);
             WeatherVideoPlayer.Play();
-
+            //wanted to cycle the video after it finishes
             _currentVideoIndex = (_currentVideoIndex + 1) % _videoPaths.Count;
         }
 
